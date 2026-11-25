@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Yasmin Schuaigert Beauty | Tranças, Sobrancelhas e Brow Lamination</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #4a1f22;
+            --bg2: #3a1618;
+            --card: #5a2a2d;
+            --rose: #e0a39c;
+            --pink: #f2b8c6;
+            --gold: #c9a46a;
+            --txt: #f6e9e6;
+            --mut: #d3b4b0;
+            --serif: "Cormorant Garamond", Georgia, serif;
+            --sans: "Jost", system-ui, sans-serif;
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px)
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+            color-scheme: dark
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--txt);
+            font-family: var(--sans);
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--serif);
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.1
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 22px
+        }
+
+        section {
+            padding: 88px 0
+        }
+
+        .eyebrow {
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            font-size: .72rem;
+            color: var(--pink);
+            margin-bottom: 14px
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--rose)
+        }
+
+        .line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), var(--pink));
+            margin: 20px 0 34px
+        }
+
+        .center {
+            text-align: center
+        }
+
+        .center .line {
+            margin-inline: auto
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            padding-top: env(safe-area-inset-top, 0px);
+            background: rgba(58, 22, 24, .82);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(224, 163, 156, .15)
+        }
+
+        nav .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 62px
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            color: var(--rose);
+            letter-spacing: .12em
+        }
+
+        .logo small {
+            font-family: var(--sans);
+            font-size: .55rem;
+            letter-spacing: .35em;
+            color: var(--gold);
+            display: block;
+            margin-top: -4px;
+            text-align: center
+        }
+
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: .82rem;
+            letter-spacing: .12em;
+            text-transform: uppercase
+        }
+
+        nav ul a {
+            color: var(--mut);
+            transition: color .3s
+        }
+
+        nav ul a:hover {
+            color: var(--pink)
+        }
+
+        @media(max-width:720px) {
+            nav ul li:not(:last-child) {
+                display: none
+            }
+        }
+
+        .hero {
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 20% 20%, rgba(242, 184, 198, .18), transparent 45%), radial-gradient(circle at 85% 80%, rgba(201, 164, 106, .14), transparent 45%), linear-gradient(160deg, #5a2529, #3a1618)
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            border: 1px solid rgba(224, 163, 156, .2);
+            top: -120px;
+            right: -120px;
+            animation: float 9s ease-in-out infinite
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 1px solid rgba(242, 184, 198, .2);
+            bottom: -80px;
+            left: -80px;
+            animation: float 11s ease-in-out infinite reverse
+        }
+
+        @keyframes float {
+            50% {
+                transform: translateY(24px) scale(1.05)
+            }
+        }
+
+        .mono {
+            width: 92px;
+            height: 92px;
+            margin: 0 auto 26px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            color: var(--rose);
+            animation: glow 4s ease-in-out infinite
+        }
+
+        @keyframes glow {
+            50% {
+                box-shadow: 0 0 34px rgba(242, 184, 198, .3)
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.6rem, 9vw, 5.6rem);
+            color: var(--rose);
+            letter-spacing: .04em
+        }
+
+        .hero h1 em {
+            color: var(--pink);
+            font-style: italic
+        }
+
+        .hero p {
+            max-width: 480px;
+            margin: 22px auto 34px;
+            color: var(--mut);
+            font-size: 1.05rem
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 34px;
+            border-radius: 40px;
+            font-size: .8rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            border: 1px solid var(--rose);
+            cursor: pointer;
+            font-family: var(--sans);
+            transition: all .35s
+        }
+
+        .btn.fill {
+            background: linear-gradient(135deg, var(--pink), var(--rose));
+            color: #4a1f22;
+            border-color: transparent;
+            font-weight: 500
+        }
+
+        .btn.fill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 26px rgba(242, 184, 198, .3)
+        }
+
+        .btn.ghost {
+            margin-left: 10px;
+            color: var(--rose)
+        }
+
+        .btn.ghost:hover {
+            background: rgba(224, 163, 156, .12)
+        }
+
+        @media(max-width:480px) {
+            .btn.ghost {
+                margin: 12px 0 0
+            }
+        }
+
+        .grid3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px
+        }
+
+        .svc {
+            background: var(--card);
+            border: 1px solid rgba(224, 163, 156, .15);
+            border-radius: 20px;
+            padding: 36px 28px;
+            transition: transform .4s, border-color .4s, box-shadow .4s
+        }
+
+        .svc:hover {
+            transform: translateY(-8px);
+            border-color: var(--pink);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .25)
+        }
+
+        .svc .ic {
+            font-size: 1.6rem;
+            color: var(--pink);
+            margin-bottom: 16px
+        }
+
+        .svc h3 {
+            font-size: 1.7rem;
+            color: var(--rose);
+            margin-bottom: 10px
+        }
+
+        .svc p {
+            color: var(--mut);
+            margin: 0;
+            font-size: .95rem
+        }
+
+        .about {
+            background: var(--bg2)
+        }
+
+        .two {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center
+        }
+
+        @media(max-width:760px) {
+            .two {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .ph {
+            border-radius: 18px;
+            background: linear-gradient(145deg, rgba(242, 184, 198, .22), rgba(201, 164, 106, .18)), var(--card);
+            border: 1px dashed rgba(224, 163, 156, .4);
+            display: grid;
+            place-items: center;
+            text-align: center;
+            color: var(--mut);
+            font-size: .8rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            padding: 12px;
+            transition: transform .5s
+        }
+
+        .ph:hover {
+            transform: scale(1.03)
+        }
+
+        .ph span {
+            display: block;
+            font-size: 1.6rem;
+            color: var(--pink);
+            margin-bottom: 6px
+        }
+
+        .about .ph {
+            aspect-ratio: 4/5
+        }
+
+        .about p {
+            color: var(--mut)
+        }
+
+        .stats {
+            display: flex;
+            gap: 34px;
+            margin-top: 26px
+        }
+
+        .stats b {
+            display: block;
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            color: var(--pink);
+            font-weight: 500
+        }
+
+        .stats small {
+            color: var(--mut);
+            font-size: .75rem;
+            letter-spacing: .14em;
+            text-transform: uppercase
+        }
+
+        .gal {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 170px;
+            gap: 14px
+        }
+
+        .gal .ph:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2
+        }
+
+        .gal .ph:nth-child(4) {
+            grid-row: span 2
+        }
+
+        .gal .ph:nth-child(5) {
+            grid-column: span 2
+        }
+
+        @media(max-width:700px) {
+            .gal {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 150px
+            }
+
+            .gal .ph:nth-child(5) {
+                grid-column: span 2
+            }
+        }
+
+        .note {
+            margin-top: 22px;
+            font-size: .78rem;
+            color: var(--mut);
+            text-align: center;
+            opacity: .7
+        }
+
+        .book {
+            background: var(--bg2)
+        }
+
+        form {
+            max-width: 620px;
+            margin: 0 auto;
+            background: var(--card);
+            padding: 38px 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(224, 163, 156, .2);
+            display: grid;
+            gap: 18px;
+            grid-template-columns: 1fr 1fr
+        }
+
+        form .full {
+            grid-column: 1/-1
+        }
+
+        @media(max-width:560px) {
+            form {
+                grid-template-columns: 1fr;
+                padding: 30px 20px
+            }
+        }
+
+        label {
+            display: block;
+            font-size: .72rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--pink);
+            margin-bottom: 6px
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(224, 163, 156, .3);
+            background: rgba(58, 22, 24, .7);
+            color: var(--txt);
+            font: inherit;
+            font-size: 1rem;
+            transition: border-color .3s, box-shadow .3s
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--pink);
+            box-shadow: 0 0 0 3px rgba(242, 184, 198, .18)
+        }
+
+        form .btn {
+            width: 100%
+        }
+
+        .ok {
+            display: none;
+            text-align: center;
+            color: var(--pink);
+            font-size: .9rem
+        }
+
+        .info {
+            display: grid;
+            gap: 22px;
+            text-align: center
+        }
+
+        .info p {
+            margin: 0;
+            color: var(--mut)
+        }
+
+        .info b {
+            color: var(--rose);
+            font-weight: 400
+        }
+
+        footer {
+            padding: 34px 0 110px;
+            text-align: center;
+            font-size: .78rem;
+            color: var(--mut);
+            border-top: 1px solid rgba(224, 163, 156, .12)
+        }
+
+        .fab {
+            position: fixed;
+            right: max(18px, env(safe-area-inset-right, 0px));
+            z-index: 30;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(58, 22, 24, .85);
+            border: 1px solid var(--rose);
+            color: var(--rose);
+            backdrop-filter: blur(8px);
+            transition: all .35s;
+            animation: pop .8s cubic-bezier(.2, 1.4, .4, 1) both
+        }
+
+        .fab svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.6;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .fab:hover {
+            background: var(--pink);
+            color: #4a1f22;
+            border-color: var(--pink);
+            transform: scale(1.1)
+        }
+
+        .fab.wa {
+            bottom: calc(86px + env(safe-area-inset-bottom, 0px))
+        }
+
+        .fab.ig {
+            bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+            animation-delay: .15s
+        }
+
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: scale(.3)
+            }
+        }
+
+        .rv {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .9s ease, transform .9s ease
+        }
+
+        .rv.in {
+            opacity: 1;
+            transform: none
+        }
+
+        .rv:nth-child(2) {
+            transition-delay: .12s
+        }
+
+        .rv:nth-child(3) {
+            transition-delay: .24s
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                animation: none !important;
+                transition: none !important
+            }
+
+            .rv {
+                opacity: 1;
+                transform: none
+            }
+
+            html {
+                scroll-behavior: auto
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="wrap"><a href="#top" class="logo">YS<small>BEAUTY</small></a>
+            <ul>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#agendar">Agendar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="top">
+        <div class="wrap">
+            <div class="mono">YS</div>
+            <div class="eyebrow">São José dos Pinhais · PR</div>
+            <h1>Yasmin Schuaigert<br><em>Beauty</em></h1>
+            <p>Tranças nagô, design de sobrancelhas e brow lamination, com cuidado em cada detalhe para realçar a sua
+                beleza.</p>
+            <a href="#agendar" class="btn fill">Agendar horário</a><a href="#servicos" class="btn ghost">Ver
+                serviços</a>
+        </div>
+    </header>
+
+    <section id="servicos">
+        <div class="wrap center">
+            <div class="eyebrow">O que fazemos</div>
+            <h2>Nossos serviços</h2>
+            <div class="line"></div>
+            <div class="grid3" style="text-align:left">
+                <div class="svc rv">
+                    <div class="ic">✦</div>
+                    <h3>Tranças Nagô</h3>
+                    <p>Penteados elegantes, bem feitos e duradouros, com acabamento impecável e muito estilo.</p>
+                </div>
+                <div class="svc rv">
+                    <div class="ic">✦</div>
+                    <h3>Sobrancelhas</h3>
+                    <p>Design personalizado que respeita o formato do seu rosto e valoriza o seu olhar.</p>
+                </div>
+                <div class="svc rv">
+                    <div class="ic">✦</div>
+                    <h3>Brow Lamination</h3>
+                    <p>Fios alinhados, volume e efeito preenchido por semanas, com aparência natural.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="sobre">
+        <div class="wrap two">
+            <div class="ph rv">
+                <div><span>✿</span>Foto da Yasmin</div>
+            </div>
+            <div class="rv">
+                <div class="eyebrow">Sobre mim</div>
+                <h2>Olá, eu sou a Yasmin</h2>
+                <div class="line"></div>
+                <p>Sou apaixonada por realçar a beleza de cada cliente. Trabalho com técnica, atenção aos detalhes e
+                    produtos de qualidade para que você saia se sentindo ainda mais confiante.</p>
+                <p>Cada atendimento é pensado para você, em um ambiente acolhedor e tranquilo.</p>
+                <div class="stats">
+                    <div><b>100%</b><small>Cuidado</small></div>
+                    <div><b>+</b><small>Clientes felizes</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <div class="wrap center">
+            <div class="eyebrow">Portfólio</div>
+            <h2>Nossos trabalhos</h2>
+            <div class="line"></div>
+            <div class="gal">
+                <div class="ph rv">
+                    <div><span>✿</span>Foto de trabalho</div>
+                </div>
+                <div class="ph rv">
+                    <div><span>✿</span>Cliente</div>
+                </div>
+                <div class="ph rv">
+                    <div><span>✿</span>Antes e depois</div>
+                </div>
+                <div class="ph rv">
+                    <div><span>✿</span>Tranças</div>
+                </div>
+                <div class="ph rv">
+                    <div><span>✿</span>Sobrancelhas</div>
+                </div>
+                <div class="ph rv">
+                    <div><span>✿</span>Brow lamination</div>
+                </div>
+            </div>
+            <p class="note">Substitua estes espaços pelas fotos do salão e dos clientes.</p>
+        </div>
+    </section>
+
+    <section class="book" id="agendar">
+        <div class="wrap center">
+            <div class="eyebrow">Reserve seu momento</div>
+            <h2>Agendamento</h2>
+            <div class="line"></div>
+            <form id="f" class="rv" style="text-align:left">
+                <div class="full"><label for="n">Nome</label><input id="n" required placeholder="Seu nome completo">
+                </div>
+                <div class="full"><label for="t">WhatsApp</label><input id="t" type="tel" required
+                        placeholder="(41) 99999-9999"></div>
+                <div><label for="d">Dia desejado</label><input id="d" type="date" required></div>
+                <div><label for="h">Horário</label><input id="h" type="time" required></div>
+                <div class="full"><label for="s">Serviço</label><select id="s" required>
+                        <option value="">Escolha um serviço</option>
+                        <option>Tranças Nagô</option>
+                        <option>Design de Sobrancelhas</option>
+                        <option>Brow Lamination</option>
+                    </select></div>
+                <div class="full"><button class="btn fill" type="submit">Enviar pelo WhatsApp</button></div>
+                <div class="ok full" id="ok">Abrindo o WhatsApp para confirmar o seu pedido…</div>
+            </form>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap center info">
+            <div>
+                <div class="eyebrow">Onde estamos</div>
+                <h2>Venha nos visitar</h2>
+                <div class="line"></div>
+            </div>
+            <p><b>São José dos Pinhais – PR</b></p>
+            <p>Instagram <b>@yasproche_beauty</b> · WhatsApp <b>(41) 98530-0432</b></p>
+        </div>
+    </section>
+
+    <footer>© 2026 Yasmin Schuaigert Beauty · Todos os direitos reservados</footer>
+
+    <a class="fab wa" href="https://wa.me/5541985300432" target="_blank" rel="noopener" aria-label="WhatsApp"><svg
+            viewBox="0 0 24 24">
+            <path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z" />
+            <path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2L9 8.5z" />
+        </svg></a>
+    <a class="fab ig" href="https://www.instagram.com/yasproche_beauty/" target="_blank" rel="noopener"
+        aria-label="Instagram"><svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r=".6" />
+        </svg></a>
+
+    <script>
+        var io = new IntersectionObserver(function (e) {e.forEach(function (x) {if (x.isIntersecting) {x.target.classList.add('in'); io.unobserve(x.target)} })}, {threshold: .15});
+        document.querySelectorAll('.rv').forEach(function (el) {io.observe(el)});
+        var d = document.getElementById('d'); d.min = new Date().toISOString().split('T')[0];
+        document.getElementById('f').addEventListener('submit', function (ev) {
+            ev.preventDefault();
+            var dt = d.value.split('-').reverse().join('/');
+            var m = 'Olá, Yasmin! Gostaria de agendar um horário.\n\n*Nome:* ' + n.value + '\n*Telefone:* ' + t.value + '\n*Serviço:* ' + s.value + '\n*Dia:* ' + dt + '\n*Horário:* ' + h.value;
+            document.getElementById('ok').style.display = 'block';
+            window.open('https://wa.me/5541985300432?text=' + encodeURIComponent(m), '_blank');
+        });
+    </script>
+</body>
+
+</html>
